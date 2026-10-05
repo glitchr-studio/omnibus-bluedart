@@ -4,6 +4,13 @@ Blue Dart for [glitchr/omnibus](https://github.com/glitchr-studio/omnibus): serv
 transit time (Transit API), waybills with their labels (Waybill API), tracking (Tracking API) and
 cancellation - Blue Dart's API gateway with a JWT.
 
+```php
+$gateway = (new BluedartGatewayFactory($http))->create($options);   // $http: the application's HTTP client - none given, the factory makes its own; the options below
+```
+
+No framework needed: the package requires `glitchr/omnibus` and `symfony/http-client`. In a
+Symfony application, the same through the bundle's configuration:
+
 ```yaml
 omnibus:
     gateways:

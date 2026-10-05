@@ -7,7 +7,6 @@ use Omnibus\Bluedart\Action\RatingAction;
 use Omnibus\Bluedart\Action\ShippingAction;
 use Omnibus\Bluedart\Action\TrackingAction;
 use Omnibus\Config;
-use Omnibus\Exception\InvalidConfigException;
 use Omnibus\GatewayFactory;
 use Symfony\Component\HttpClient\HttpClient;
 
@@ -35,7 +34,7 @@ final class BluedartGatewayFactory extends GatewayFactory
             'origin_area' => null,
             'sandbox' => false,
             'omnibus.api' => function (Config $c) {
-                $http = $this->http ?? (class_exists(HttpClient::class) ? HttpClient::create() : throw new InvalidConfigException('The "bluedart" gateway needs symfony/http-client.'));
+                $http = $this->http ?? HttpClient::create();
 
                 return new Api($http, (string) $c['client_id'], (string) $c['client_secret'], (string) $c['login_id'], (string) $c['licence_key'], (string) $c['customer_code'], $c['origin_area'] ?: null, (bool) $c['sandbox']);
             },
