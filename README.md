@@ -40,4 +40,4 @@ from your account manager.
 Built from Blue Dart's published API documentation and tested on recorded answers; **unverified**
 against the sandbox until an account's keys are at hand.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
